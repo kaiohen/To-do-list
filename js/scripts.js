@@ -1,3 +1,4 @@
+// Seleção de elementos 
 const todoForm = document.querySelector("#todo-form");
 const todoInput = document.querySelector("#todo-input");
 const todoList = document.querySelector("#todo-list");
@@ -118,16 +119,17 @@ const filterTodos = (filterValue) => {
 };
  
 // Eventos
-todoForm.addEventListener("submit", (e) => {
-  e.preventDefault();
+// empede que a pagina de recarregar e salva o formulario preenchido 
+todoForm.addEventListener("submit", (e) => { // cria uma tarefa nova 
+  e.preventDefault(); // impede que a pagina recarregue 
  
-  const inputValue = todoInput.value;
- 
+  const inputValue = todoInput.value; // salva o texto que o usúario digitou
+ // impede de criar uma tarefa com o campo vazio
   if (inputValue) {
     saveTodo(inputValue);
   }
 });
- 
+
 document.addEventListener("click", (e) => {
   const targetEl = e.target;
   const parentEl = targetEl.closest("div");
